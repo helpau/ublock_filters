@@ -1,0 +1,119 @@
+! Removes the YouTube Gaming button in the left-hand menu
+www.youtube.com#?#ytd-guide-entry-renderer:-abp-has(a[href*="/gaming"])
+
+
+! Removes the pop-out player button in the video player
+www.youtube.com##.ytp-button.ytp-miniplayer-button
+
+! Removes the Livestream button in the left-hand menu
+www.youtube.com#?#ytd-guide-entry-renderer:-abp-has(a[href*=UC4R8DWoMoI7CAwX8_LjQHig])
+
+! Removes the Homepage button in the left-hand menu
+www.youtube.com#?#ytd-guide-entry-renderer:-abp-has(a[href="/"])
+www.youtube.com#?#ytd-mini-guide-entry-renderer:-abp-has(a[href="/"])
+m.youtube.com##.scbrr-tab[href="/"]
+m.youtube.com##ytm-pivot-bar-item-renderer:first-of-type
+
+! Removes the video store button in the left-hand menu
+www.youtube.com#?#ytd-guide-entry-renderer:-abp-has(a[href*=UClgRkhTL3_hImCAmdLfDE4g])
+
+! Removes the app drawer in the top-right menu
+www.youtube.com#?##button:-abp-has([aria-label*=app])
+
+
+! Removes the large grey [YouTube Kids / game info] buttons below gaming videos
+youtube.com##ytd-rich-metadata-renderer.ytd-rich-metadata-row-renderer
+m.youtube.com##ytm-watch-metadata-app-promo-renderer
+m.youtube.com##ytm-rich-metadata-renderer
+
+
+! Aims to prevent video suggestions from showing up when pausing embedded videos
+##.ytp-scroll-min
+##.ytp-pause-overlay
+
+! Removes the frontpage link from the upper left YouTube logo (Not supported by ABP or AdBlock)
+youtube.com#?##logo:style(pointer-events: none !important; cursor: default !important)
+
+
+! Removes a banner that promotes YouTube Premium
+youtube.com###masthead-ad
+
+! Believed to remove sponsored description links inserted by rights holders
+www.youtube.com##ytd-metadata-row-renderer
+
+! Removes the Explore buttons in the left-hand menu
+www.youtube.com#?#ytd-guide-entry-renderer:-abp-has(a[href*="feed/explore"])
+www.youtube.com#?#ytd-mini-guide-entry-renderer:-abp-has(a[href*="feed/explore"])
+
+
+! Below are entries that I borrowed verbatim (except for adding extra domain coverage) from «YouTube: Pure Video Experience», which was maintained by monztA until 2017, and which is currently believed to have no known copyright statements or licences.
+
+! Removes comments on video pages
+||youtube.com/live_chat_fragments_ajax?$xmlhttprequest
+||youtube.com/comment_service_ajax?$domain=youtube.com|youtu.be|youtube-nocookie.com
+youtube.com###comments
+! Removes all annotations in videos
+||youtube.com/annotations_invideo?$object-subrequest
+! HTML5 version
+youtube.com,youtube-nocookie.com##.video-annotations
+! Removes video suggestions on video pages
+youtube.com##.watch-sidebar-body > #watch-related > .related-list-item
+! Removes recommended channels on home page, susbcriptions page and feed
+youtube.com##.home .branded-page-v2-secondary-col
+youtube.com##.feed .branded-page-v2-secondary-col
+youtube.com##.guide-builder-v2 .branded-page-v2-secondary-col
+! Removes sharing tab below videos
+||youtube.com/share_ajax?action_get_share_box=1&video_id=$xmlhttprequest
+youtube.com##.action-panel-trigger[role=button][data-trigger-for=action-panel-share]
+youtube.com##.yt-uix-button[data-trigger-for=action-panel-share]
+! Removes recommended and featured videos in the endscreen
+||ytimg.com/yts/swfbin/player-*/endscreen.swf$object-subrequest,domain=youtube.com|youtu.be|youtube-nocookie.com
+youtube.com,youtube-nocookie.com##.html5-endscreen-content
+youtube.com,youtube-nocookie.com##.html5-endscreen
+! Removes related/featured/popular channels on channel pages
+youtube.com##.branded-page-v2-secondary-col > .branded-page-related-channels > .yt-uix-tooltip
+youtube.com##.branded-page-v2-secondary-col > .branded-page-related-channels > .yt-uix-tooltip + .branded-page-related-channels-list
+! "Subscribe to see more videos from this channel" on home page after watching some video of a channel
+youtube.com###channel-subscription-promo-in-feed
+! <<<<<<<< https://raw.githubusercontent.com/DandelionSprout/adfilt/master/YouTubeEvenMorePureVideoExperience.txt
+!#include StopAutoplayOnYouTube.txt
+! >>>>>>>> https://raw.githubusercontent.com/DandelionSprout/adfilt/master/StopAutoplayOnYouTube.txt
+[Adblock Plus 3.4]
+! Title: 🎬 Stop Autoplay On Video Sites
+! Expires: 7 days
+! Version: 02April2021v1
+! Description: Are you tired of having to turn off autoplay on YouTube, Vimeo, and other video sites every time you e.g. go to incognito mode? Do you work in classrooms/courserooms and don't want to accidentally show unfitting videos to your students/coursetakers? Are you worried of having to use specific extensions just for that purpose? Then this list is for you.
+! Special thanks to https://github.com/llacb47 for waterproofing large parts of this list.
+! Homepage: https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+
+! I offer a €15 bounty to anyone who can figure out how to automatically turn off autoplay on Dailymotion through one or more uBlock Origin entries, payable by PayPal.
+
+! ——— YouTube ———
+! Note: Video suggestions after the video is finished, will not be shown.
+/endscreen.js$script,domain=youtube.com|youtu.be|youtube-nocookie.com
+youtube.com###head.ytd-compact-autoplay-renderer
+youtube.com##.checkbox-on-off
+youtube.com##.watch-sidebar-head
+m.youtube.com##.ytm-autonav-bar
+!#if !ext_ublock
+/endscreen.js$app=com.google.android.youtube|com.google.android.apps.youtube.vr|com.google.android.youtube.tv|com.google.android.youtube.googletv
+!#endif
+
+! ——— TED ———
+ted.com##+js(sid, d.period, 1000)
+ted.com##.css-1dg07lz:has-text(Up next)
+! <<<<<<<< https://raw.githubusercontent.com/DandelionSprout/adfilt/master/uBO%20list%20extensions/StopAutoplayOnYouTube-uBOExtension.txt
+! <<<<<<<< https://raw.githubusercontent.com/DandelionSprout/adfilt/master/StopAutoplayOnYouTube.txt
+!#include Anti-Elsagate%20List.txt
+! >>>>>>>> https://raw.githubusercontent.com/DandelionSprout/adfilt/master/Anti-Elsagate%20List.txt
+[Adblock Plus 3.6]
+! Title: ☣️ Anti-Elsagate List
+! Version: 17April2021v1
+! Expires: 3 days
+! Description: This list aims to remove particularly disturbing content on YouTube, Vimeo, DailyMotion, Internet Archive, and Rumble that targets young children, as well as nursery rhymes, "Finger Family", "Wrong Heads", and other things that are hotbeds for extremely unproductive videos. Also supports YouTube on mobile browsers (but sadly not the apps).
+! Motivation: I do not think of this as protecting children. I see this as protecting all of mankind. No humans, old or young, should need to be subjected to Elsagate-style material.
+! Note that in order to be really certain of avoiding Elsagate, especially in the case of children, this list also deactivates Autoplay and end-of-video links, but at the moment only on desktop browsers.
+! Homepage: https://github.com/DandelionSprout/adfilt/blob/master/Wiki/General-info.md#english
+
+! —— Prevents autoplay on YouTube ——
+/watch_autoplayrenderer.js$script,domain=youtube.com
